@@ -45,7 +45,7 @@ if (mysqli_num_rows($query) < 1) {
 
         h1,
         h4 {
-            color: #f0a500;
+            color: #02055B;
         }
 
         input,
@@ -68,15 +68,15 @@ if (mysqli_num_rows($query) < 1) {
 
         input:focus {
             outline: 0;
-            border-color: #bd8200;
+            border-color: #253DA1;
         }
 
         input:focus+.input-icon i {
-            color: #f0a500;
+            color: #253DA1;
         }
 
         input:focus+.input-icon:after {
-            border-right-color: #f0a500;
+            border-right-color: #253DA1;
         }
 
         input[type="radio"] {
@@ -88,7 +88,6 @@ if (mysqli_num_rows($query) < 1) {
             display: inline-block;
             width: 50%;
             text-align: center;
-            float: left;
             border-radius: 0;
         }
 
@@ -110,9 +109,9 @@ if (mysqli_num_rows($query) < 1) {
         input:checked+label:before,
         select:focus,
         select:active {
-            background-color: #f0a500;
+            background-color: #02055B;
             color: #fff;
-            border-color: #bd8200;
+            border-color: #02055A;
         }
 
         input[type="checkbox"] {
@@ -172,7 +171,7 @@ if (mysqli_num_rows($query) < 1) {
         }
 
         select option {
-            background-color: #f0a500;
+            background-color: #253DA1;
             color: #fff;
         }
 
@@ -285,9 +284,9 @@ if (mysqli_num_rows($query) < 1) {
 
         .button-42 {
             background-color: initial;
-            background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+            background-image: linear-gradient(-180deg, #02055A, #253DA1);
             border-radius: 6px;
-            box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+            box-shadow: rgb(42, 82, 190) 0 2px 4px;
             color: #FFFFFF;
             cursor: pointer;
             display: inline-block;
@@ -312,7 +311,11 @@ if (mysqli_num_rows($query) < 1) {
         }
 
         .button-42:hover {
-            box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+            box-shadow: rgb(171, 205, 239) 0 3px 8px;
+        }
+
+        label {
+            color: #02055A;
         }
     </style>
 </head>
@@ -326,42 +329,24 @@ if (mysqli_num_rows($query) < 1) {
         <form action="proses-edit.php" method="POST">
 
             <div class="row">
-                <h1>Formulir Edit Siswa</h1>
+                <h1>Formulir Edit Data Siswa</h1>
                 <input type="hidden" name="id" value="<?php echo $siswa['id'] ?>" />
-                <h4>Nama Lengkap</h4>
-                <div class="input-group input-group-icon">
+                <div class="input-group">
+                    <label for="nama">Nama Lengkap</label>
                     <input for="nama" type="text" name="nama" placeholder="Full Name" value="<?php echo $siswa['nama'] ?>" />
                     <div class="input-icon"></div>
                 </div>
-                <h4>Alamat</h4>
-                <div class="input-group input-group-icon">
+                <div class="input-group">
+                    <label for="alamat">Alamat</label>
                     <input for="alamat" name="alamat" type="text" placeholder="Address" value="<?php echo $siswa['alamat'] ?>" />
                     <div class="input-icon"></div>
                 </div>
-                <!-- <div class="input-group input-group-icon">
-                <input type="password" placeholder="Password"/>
-                <div class="input-icon"></div>
-            </div> -->
             </div>
             <div class="row">
-                <!-- <div class="col-half">
-                <h4>Date of Birth</h4>
-                <div class="input-group">
-                <div class="col-third">
-                    <input type="text" placeholder="DD"/>
-                </div>
-                <div class="col-third">
-                    <input type="text" placeholder="MM"/>
-                </div>
-                <div class="col-third">
-                    <input type="text" placeholder="YYYY"/>
-                </div>
-                </div>
-            </div> -->
                 <div class="col-half">
-                    <h4>Jenis Kelamin</h4>
                     <div class="input-group">
                         <?php $jk = $siswa['jenis_kelamin']; ?>
+                        <label for="jenis_kelamin">Jenis Kelamin</label>
                         <input id="gender_male" type="radio" name="jenis_kelamin" value="laki-laki" <?php echo ($jk == 'laki-laki') ? "checked" : "" ?> />
                         <label for="gender_male">Male</label>
                         <input id="gender_female" type="radio" name="jenis_kelamin" value="perempuan" <?php echo ($jk == 'perempuan') ? "checked" : "" ?> />
@@ -370,7 +355,7 @@ if (mysqli_num_rows($query) < 1) {
                 </div>
             </div>
             <div class="row">
-                <h4>Agama</h4>
+                <label for="agama">Agama</label>
                 <div class="input-group">
                     <?php $agama = $siswa['agama']; ?>
                     <select for="agama" name="agama">
@@ -381,75 +366,36 @@ if (mysqli_num_rows($query) < 1) {
                         <option <?php echo ($agama == 'Atheis') ? "selected" : "" ?>>Atheis</option>
                     </select>
                 </div>
-                <h4>Sekolah Asal</h4>
-                <div class="input-group input-group-icon">
+                <div class="input-group">
+                    <label for="sekolah_asal">Sekolah Asal</label>
                     <input type="text" for="sekolah_asal" name="sekolah_asal" placeholder="School" value="<?php echo $siswa['sekolah_asal'] ?>" />
                     <div class="input-icon"></div>
                 </div>
-                <!-- <div class="col-half">
-                <div class="input-group input-group-icon">
-                <input type="text" placeholder="Card CVC"/>
-                <div class="input-icon"><i class="fa fa-user"></i></div>
-                </div>
-            </div>
-            <div class="col-half">
-                <div class="input-group">
-                <select>
-                    <option>01 Jan</option>
-                    <option>02 Jan</option>
-                </select>
-                <select>
-                    <option>2015</option>
-                    <option>2016</option>
-                </select>
-                </div>
-            </div> -->
             </div>
             <div class="row"></br>
                 <button type="submit" value="Simpan" name="simpan" class="button-42">Simpan</button>
                 <a href="list-siswa.php"><button type="button" class="button-42">Batal</button></a>
             </div>
 
-            <!-- <fieldset>
+            <?php echo $siswa['id'] ?>
 
-            <input type="hidden" name="id" value="<?php echo $siswa['id'] ?>" />
-
-        <p>
-            <label for="nama">Nama: </label>
-            <input type="text" name="nama" placeholder="nama lengkap" value="<?php echo $siswa['nama'] ?>" />
-        </p>
-        <p>
-            <label for="alamat">Alamat: </label>
-            <textarea name="alamat"><?php echo $siswa['alamat'] ?></textarea>
-        </p>
-        <p>
-            <label for="jenis_kelamin">Jenis Kelamin: </label>
+        <?php echo $siswa['nama'] ?>
+        
+        <?php echo $siswa['alamat'] ?>
+        
             <?php $jk = $siswa['jenis_kelamin']; ?>
-            <label><input type="radio" name="jenis_kelamin" value="laki-laki" <?php echo ($jk == 'laki-laki') ? "checked" : "" ?>> Laki-laki</label>
-            <label><input type="radio" name="jenis_kelamin" value="perempuan" <?php echo ($jk == 'perempuan') ? "checked" : "" ?>> Perempuan</label>
-        </p>
-        <p>
-            <label for="agama">Agama: </label>
+             <?php echo ($jk == 'laki-laki') ? "checked" : "" ?>
+            <?php echo ($jk == 'perempuan') ? "checked" : "" ?>
+        
             <?php $agama = $siswa['agama']; ?>
-            <select name="agama">
-                <option <?php echo ($agama == 'Islam') ? "selected" : "" ?>>Islam</option>
-                <option <?php echo ($agama == 'Kristen') ? "selected" : "" ?>>Kristen</option>
-                <option <?php echo ($agama == 'Hindu') ? "selected" : "" ?>>Hindu</option>
-                <option <?php echo ($agama == 'Budha') ? "selected" : "" ?>>Budha</option>
-                <option <?php echo ($agama == 'Atheis') ? "selected" : "" ?>>Atheis</option>
-            </select>
-        </p>
-        <p>
-            <label for="sekolah_asal">Sekolah Asal: </label>
-            <input type="text" name="sekolah_asal" placeholder="nama sekolah" value="<?php echo $siswa['sekolah_asal'] ?>" />
-        </p>
-        <p>
-            <input type="submit" value="Simpan" name="simpan" />
-        </p>
-
-        </fieldset> -->
-
-
+            
+                 <?php echo ($agama == 'Islam') ? "selected" : "" ?>
+                 <?php echo ($agama == 'Kristen') ? "selected" : "" ?>
+                 <?php echo ($agama == 'Hindu') ? "selected" : "" ?>
+                 <?php echo ($agama == 'Budha') ? "selected" : "" ?>
+                 <?php echo ($agama == 'Atheis') ? "selected" : "" ?>
+            
+        <?php echo $siswa['sekolah_asal'] ?>
         </form>
     </div>
 
