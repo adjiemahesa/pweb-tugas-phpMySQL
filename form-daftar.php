@@ -21,7 +21,7 @@
 
         h1,
         h4 {
-            color: #f0a500;
+            color: #02055B;
         }
 
         input,
@@ -44,15 +44,15 @@
 
         input:focus {
             outline: 0;
-            border-color: #bd8200;
+            border-color: #253DA1;
         }
 
         input:focus+.input-icon i {
-            color: #f0a500;
+            color: #253DA1;
         }
 
         input:focus+.input-icon:after {
-            border-right-color: #f0a500;
+            border-right-color: #253DA1;
         }
 
         input[type="radio"] {
@@ -64,7 +64,6 @@
             display: inline-block;
             width: 50%;
             text-align: center;
-            float: left;
             border-radius: 0;
         }
 
@@ -86,9 +85,9 @@
         input:checked+label:before,
         select:focus,
         select:active {
-            background-color: #f0a500;
+            background-color: #02055B;
             color: #fff;
-            border-color: #bd8200;
+            border-color: #02055A;
         }
 
         input[type="checkbox"] {
@@ -148,7 +147,7 @@
         }
 
         select option {
-            background-color: #f0a500;
+            background-color: #253DA1;
             color: #fff;
         }
 
@@ -261,9 +260,9 @@
 
         .button-42 {
             background-color: initial;
-            background-image: linear-gradient(-180deg, #FF7E31, #E62C03);
+            background-image: linear-gradient(-180deg, #02055A, #253DA1);
             border-radius: 6px;
-            box-shadow: rgba(0, 0, 0, 0.1) 0 2px 4px;
+            box-shadow: rgb(42, 82, 190) 0 2px 4px;
             color: #FFFFFF;
             cursor: pointer;
             display: inline-block;
@@ -288,7 +287,11 @@
         }
 
         .button-42:hover {
-            box-shadow: rgba(253, 76, 0, 0.5) 0 3px 8px;
+            box-shadow: rgb(171, 205, 239) 0 3px 8px;
+        }
+
+        label {
+            color: #02055A;
         }
     </style>
 </head>
@@ -304,39 +307,23 @@
 
             <div class="row">
                 <h1>Formulir Pendaftaran Siswa Baru</h1>
-                <h4>Nama Lengkap</h4>
-                <div class="input-group input-group-icon">
-                    <input for="nama" type="text" name="nama" placeholder="Full Name" />
-                    <div class="input-icon"></div>
+                <!-- <h4>Nama Lengkap</h4> -->
+                <div class="input-group">
+                    <label for="nama">Nama Lengkap</label>
+                    <input for="nama" type="text" name="nama" placeholder="Nama Lengkap" />
+                    
                 </div>
-                <h4>Alamat</h4>
-                <div class="input-group input-group-icon">
-                    <input for="alamat" name="alamat" type="text" placeholder="Address" />
-                    <div class="input-icon"></div>
+                <div class="input-group">
+                    <label for="alamat">Alamat Lengkap</label>
+                    <input for="alamat" name="alamat" type="text" placeholder="Alamat Lengkap" />
+                    
                 </div>
-                <!-- <div class="input-group input-group-icon">
-                <input type="password" placeholder="Password"/>
-                <div class="input-icon"></div>
-            </div> -->
             </div>
             <div class="row">
-                <!-- <div class="col-half">
-                <h4>Date of Birth</h4>
-                <div class="input-group">
-                <div class="col-third">
-                    <input type="text" placeholder="DD"/>
-                </div>
-                <div class="col-third">
-                    <input type="text" placeholder="MM"/>
-                </div>
-                <div class="col-third">
-                    <input type="text" placeholder="YYYY"/>
-                </div>
-                </div>
-            </div> -->
                 <div class="col-half">
-                    <h4>Jenis Kelamin</h4>
                     <div class="input-group">
+                        <label for="gender">Jenis Kelamin</label>
+                        <br /> 
                         <input id="gender_male" type="radio" name="jenis_kelamin" value="laki-laki" />
                         <label for="gender_male">Male</label>
                         <input id="gender_female" type="radio" name="jenis_kelamin" value="perempuan" />
@@ -345,8 +332,8 @@
                 </div>
             </div>
             <div class="row">
-                <h4>Agama</h4>
                 <div class="input-group">
+                    <label for="agama">Agama</label>
                     <select for="agama" name="agama">
                         <option>Islam</option>
                         <option>Kristen</option>
@@ -355,76 +342,18 @@
                         <option>Atheis</option>
                     </select>
                 </div>
-                <h4>Sekolah Asal</h4>
-                <div class="input-group input-group-icon">
-                    <input type="text" for="sekolah_asal" name="sekolah_asal" placeholder="School" />
-                    <div class="input-icon"></div>
-                </div>
-                <!-- <div class="col-half">
-                <div class="input-group input-group-icon">
-                <input type="text" placeholder="Card CVC"/>
-                <div class="input-icon"><i class="fa fa-user"></i></div>
-                </div>
-            </div>
-            <div class="col-half">
                 <div class="input-group">
-                <select>
-                    <option>01 Jan</option>
-                    <option>02 Jan</option>
-                </select>
-                <select>
-                    <option>2015</option>
-                    <option>2016</option>
-                </select>
+                    <label for="sekolah">Sekolah Asal</label>
+                    <input type="text" for="sekolah_asal" name="sekolah_asal" placeholder="Sekolah Asal" />
+                    
                 </div>
-            </div> -->
             </div>
             <div class="row">
-                <h4>Terms and Conditions</h4>
-                <div class="input-group">
-                    <input id="terms" type="checkbox" />
-                    <label for="terms">I accept the terms and conditions for registering to this ITS Campus, and hereby confirm I have read the privacy policy.</label>
-                </div></br>
                 <div class="row">
                     <button type="submit" value="Daftar" name="daftar" class="button-42">Daftar</button>
                     <a href="index.php"><button type="button" class="button-42">Batal</button></a>
                 </div>
             </div>
-
-
-            <!-- <p>
-            <label for="nama">Nama: </label>
-            <input type="text" name="nama" placeholder="nama lengkap" />
-        </p>
-        <p>
-            <label for="alamat">Alamat: </label>
-            <textarea name="alamat"></textarea>
-        </p>
-        <p>
-            <label for="jenis_kelamin">Jenis Kelamin: </label>
-            <label><input type="radio" name="jenis_kelamin" value="laki-laki"> Laki-laki</label>
-            <label><input type="radio" name="jenis_kelamin" value="perempuan"> Perempuan</label>
-        </p>
-        <p>
-            <label for="agama">Agama: </label>
-            <select name="agama">
-                <option>Islam</option>
-                <option>Kristen</option>
-                <option>Hindu</option>
-                <option>Budha</option>
-                <option>Atheis</option>
-            </select>
-        </p>
-        <p>
-            <label for="sekolah_asal">Sekolah Asal: </label>
-            <input type="text" name="sekolah_asal" placeholder="nama sekolah" />
-        </p>
-        <p>
-            <input type="submit" value="Daftar" name="daftar" />
-        </p> -->
-
-            <!-- </fieldset> -->
-
         </form>
     </div>
 
